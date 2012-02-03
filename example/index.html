@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>QR</title>
+	<meta name="description" content="" />
+	
+<!-- This whole code is just a handle to get the SWF in the page -->
+	<script src="js/swfobject.js"></script>
+	<script>
+		var flashvars = {
+		};
+		var params = {
+			menu: "false",
+			scale: "noScale",
+			allowFullscreen: "true",
+			allowScriptAccess: "always",
+			bgcolor: "",
+			//wmode: "direct" // can cause issues with FP settings & webcam
+		};
+		var attributes = {
+			id:"QR"
+		};
+		swfobject.embedSWF(
+			"QR.swf", 
+			"altContent", 640, 480, "10.0.0", 
+			"expressInstall.swf", 
+			flashvars, params, attributes);
+	</script>
+	<style>
+		html, body { height:100%; overflow:hidden; }
+		body { margin:0; }
+	</style>
+</head>
+<body>
+	<h1>QR_AS3_JS_zxing demo</h1>
+	<p>See source and console</p>
+	<div id="altContent">
+		<h1>QR</h1>
+		<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
+	</div>
+	
+
+
+
+<script> // FOCUS!
+
+// sample of function that may be registered as Callback.
+function actQR( msg ){
+	// msg comes null if no code were detected
+	if( msg === null ){ //expect a lot of nulls
+		console.log("no QR were read at this time")
+	} else {
+		// a valid QR reading, do something with it
+		console.log(msg)
+		// ask flash to stop parsing, this saves processing as webcam reading stop
+		QR.stop()
+	}
+}
+
+// sampe of function to be called when something goes wrong
+function noWebcam( msg ){
+	alert("Err!"+msg)
+}
+
+// this setInterval is a safe measure, so we don't call flash function before it is loaded;
+var registerQRCb = setInterval(function(){
+	//var nomeDoFlash = "QR"
+	if( typeof QR === 'object' && QR != null && typeof QR.start === 'function' ){
+		clearInterval(registerQRCb)
+		// first param is the function signature we want the SWF to call periodicaly
+		// second param is the intervall we want it, in miliseconds (default: half-second)
+		// third is an signature for callback if something goes wrong, aka, user has no Webcam (default: null)
+		QR.start( "actQR", 200, "noWebcam" )
+	}
+}, 100)
+</script>
+</body>
+</html>
