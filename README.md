@@ -1,6 +1,6 @@
 # QR_AS3_JS_zxing
 
-## This project is a simple ActionScript3 rip of Google zxing-lib, in order to read QR codes from webcam and trigger a js callback.  
+**This project is a simple ActionScript3 rip of Google zxing-lib, in order to read QR codes from webcam and trigger a js callback.**  
   
 For possible uses, inspiration and some use, see [my_blog_post](http://fabianosoriani.wordpress.com/2012/02/02/read-qr-code-from-javascript-and-webcam/)  
 The webcam is initialized as 640x480. The swf only display the webcam in real-time  
