@@ -1,3 +1,5 @@
+(sorry guys, I am not able to maintain this project, feel free to fork me off, I can link your repo here)
+
 # QR_AS3_JS_zxing
 
 **This project is a simple ActionScript3 rip of Google zxing-lib, in order to read QR codes from webcam and trigger a js callback.**  
