@@ -1,4 +1,4 @@
-(sorry guys, I am not able to maintain this project, feel free to fork me off, I can link your repo here)
+(sorry guys, I am not maintaining this project, check out [this fork](https://github.com/sara-sge/QR_AS3_JS_zxing) there may be others too)
 
 # QR_AS3_JS_zxing
 
